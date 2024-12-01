@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>Gerenciamento de Livros</title>
+    </head>
+    <body>
+        <header>Sistema de Gerenciamento de Livros</header>
+
+        <div id="principal">
+            <h1>Cadastro de Livros</h1>
+            <form id="form">
+                <label>Title</label>
+                <input type="text" name="txt_title" id="title" required /><br />
+                <label>SubTitle</label>
+                <textarea id="subtitle"></textarea><br />
+                <label>Imagem</label>
+                <input type="text" name="txt_image" id="image" /><br />
+                <label>Price</label>
+                <input type="text" name="txt_price" id="price" /><br />
+                <button id="salvar" type="button">Salvar</button>
+            </form>
+        </div>
+
+        <div id="listLivros">
+            <h1>Listagem de Livros</h1>
+            <div class="linha">
+                <div class="titulo">Title</div>
+                <div class="titulo">Subtitle</div>
+                <div class="titulo">Price</div>
+                <div class="titulo">Opções</div>
+            </div>
+            <div id="listDados">
+                <!-- Os itens serão gerados dinamicamente -->
+            </div>
+        </div>
+
+        <footer>
+            <span>Desenvolvido por: Marcel Neves Teixeira</span>
+        </footer>
+
+        <!-- Script no final do corpo -->
+        <script src="js/crud.js"></script>
+    </body>
+</html>
