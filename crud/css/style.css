@@ -173,21 +173,49 @@ header{
     padding-top: 20px;
 }
 
-footer{
+footer {
     box-sizing: border-box;
     padding: 20px;
-    height: 80px;
+    height: auto; /* Ajustado para permitir expansão conforme necessário */
+    background-color: #000000;
 }
 
-footer span{
+footer span {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #07c3f7;
     display: block;
-    width: 50%;
-    margin: auto;
+    width: 100%; /* Ajustado para centralizar o texto */
+    margin: 10px auto 0;
     text-align: center;
 }
 
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaço entre os links */
+    margin-bottom: 10px; /* Espaço acima do texto */
+}
 
+.social-link {
+    text-decoration: none;
+    color: #07c3f7;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px 10px;
+    border: 1px solid #07c3f7;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-link:hover {
+    background-color: #07c3f7;
+    color: #000000;
+}
+
+
+.github-icon, .linkedin-icon {
+    width: 20px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    margin-left: 5px; /* Espaço entre o link e o ícone */
+}
 
 

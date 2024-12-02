@@ -16,15 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
         return { title, subtitle, image, price };
     };
 
+    // Função para limpar o formulário
+    const limparFormulario = () => {
+        document.getElementById("title").value = "";
+        document.getElementById("subtitle").value = "";
+        document.getElementById("image").value = "";
+        document.getElementById("price").value = "";
+    };
+
     // Função para listar livros
     const getLivros = async () => {
         try {
-            const response = await fetch(
-                "https://1dfe952b-3b07-4b52-b02d-52d3d875487b-00-z42zufyaspi7.worf.replit.dev/books",
-            );
+            const response = await fetch("http://localhost:3000/books");
             const dados = await response.json();
 
-            console.log("Livros recebidos:", dados); // Verifique os dados recebidos
+            console.log("Livros recebidos:", dados);
 
             if (response.ok) {
                 if (dados && dados.length > 0) {
@@ -42,8 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Função para criar os elementos na listagem
     const setCardItens = (livros) => {
-        console.log("Livros a serem renderizados:", livros); // Verifique o conteúdo dos livros
-
         const listDados = document.getElementById("listDados");
         listDados.innerHTML = ""; // Limpa a listagem antes de renderizar
 
@@ -56,10 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div>${livro.subtitle}</div>
                 <div>${livro.price}</div>
                 <div>
-                    <span onclick="editarLivro(${livro.id})">
+                    <span class="editar" data-id="${livro.id}">
                         <img src="icones/editar.png" alt="Editar">
                     </span>
-                    <span onclick="excluirLivro(${livro.id})">
+                    <span class="excluir" data-id="${livro.id}">
                         <img src="icones/excluir.png" alt="Excluir">
                     </span>
                 </div>
@@ -67,22 +71,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
             listDados.appendChild(linha);
         });
+
+        // Adiciona os eventos de clique para editar e excluir
+        document.querySelectorAll(".editar").forEach((botao) => {
+            botao.addEventListener("click", () => {
+                const id = botao.getAttribute("data-id");
+                editarLivro(id);
+            });
+        });
+
+        document.querySelectorAll(".excluir").forEach((botao) => {
+            botao.addEventListener("click", () => {
+                const id = botao.getAttribute("data-id");
+                excluirLivro(id);
+            });
+        });
     };
 
     // Função para adicionar um livro
     const postLivro = async (livro) => {
         try {
-            const response = await fetch(
-                "https://1dfe952b-3b07-4b52-b02d-52d3d875487b-00-z42zufyaspi7.worf.replit.dev/books",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(livro),
-                },
-            );
+            const response = await fetch("http://localhost:3000/books", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(livro),
+            });
 
             if (response.ok) {
                 alert("Livro salvo com sucesso!");
+                limparFormulario();
                 getLivros();
             } else {
                 alert("Erro ao salvar o livro.");
@@ -95,9 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Função para editar um livro
     const editarLivro = async (id) => {
         try {
-            const response = await fetch(
-                `https://1dfe952b-3b07-4b52-b02d-52d3d875487b-00-z42zufyaspi7.worf.replit.dev/books/${id}`,
-            );
+            const response = await fetch(`http://localhost:3000/books/${id}`);
             const livro = await response.json();
 
             if (response.ok) {
@@ -120,17 +135,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const putLivro = async (livro) => {
         const id = sessionStorage.getItem("idLivro");
         try {
-            const response = await fetch(
-                `https://1dfe952b-3b07-4b52-b02d-52d3d875487b-00-z42zufyaspi7.worf.replit.dev/books/${id}`,
-                {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(livro),
-                },
-            );
+            const response = await fetch(`http://localhost:3000/books/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(livro),
+            });
 
             if (response.ok) {
                 alert("Livro atualizado com sucesso!");
+                limparFormulario();
                 getLivros();
                 sessionStorage.removeItem("idLivro");
                 botaoSalvar.innerText = "Salvar";
@@ -147,12 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!confirm("Deseja realmente excluir este livro?")) return;
 
         try {
-            const response = await fetch(
-                `https://1dfe952b-3b07-4b52-b02d-52d3d875487b-00-z42zufyaspi7.worf.replit.dev/books/${id}`,
-                {
-                    method: "DELETE",
-                },
-            );
+            const response = await fetch(`http://localhost:3000/books/${id}`, {
+                method: "DELETE",
+            });
 
             if (response.ok) {
                 alert("Livro excluído com sucesso!");
