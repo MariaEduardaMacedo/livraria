@@ -63,48 +63,7 @@ npx ts-node ./bookstore/src/server.ts
 
 -------------------------------------- **Estrutura de Pastas** --------------------------------------
 
-bookstore/
-│
-├── src/
-│   ├── config/
-│   │   └── database.ts
-│   ├── controllers/
-│   │   ├── authController.ts
-│   │   └── bookController.ts
-│   ├── helpers/
-│   │   └── validationHelper.ts
-│   ├── models/
-│   │   └── bookModel.ts
-│   │   └── userModel.ts
-│   ├── repositories/
-│   │   └── bookRepository.ts
-│   │   └── userRepository.ts
-│   ├── routes/
-│   │   ├── authRoutes.ts
-│   │   └── bookRoutes.ts
-│   ├── server.ts
-│
-├── package.json
-├── tsconfig.json
-└── jest.config.js
-
-crud/
-│
-├── css/
-│   ├── login.css
-│   └── style.css
-├── icon/
-│   ├── github.png
-│   └── linkedin.png
-├── icones/
-│   ├── editar.png
-│   └── excluir.png
-├── js/
-│   ├── crud.js
-│   └── login.js
-├── index.html
-├── login.html
-
+<img src="./img/README.png"></img>
 
 -------------------------------------- **Conclusão** --------------------------------------
 
