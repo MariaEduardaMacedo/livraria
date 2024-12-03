@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+<<<<<<< HEAD
+=======
+    <mapping directory="$PROJECT_DIR$/bookstore/livraria" vcs="Git" />
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
   </component>
 </project>

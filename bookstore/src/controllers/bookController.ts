@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 import { Request, Response } from "express";
 import { BookRepository } from "../repositories/bookRepository";
 import { validateBookTitle } from "../helpers/validationHelper";
+=======
+// src/controllers/bookController.ts
+
+import { Request, Response } from "express";
+import { BookRepository } from "../repositories/bookRepository";
+import { validateBookTitle } from "../helpers/bookValidationHelper";
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
 
 const bookRepository = new BookRepository();
 
@@ -13,6 +21,7 @@ export const getAllBooks = async (req: Request, res: Response) => {
   }
 };
 
+<<<<<<< HEAD
 export const getBookById = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
@@ -29,6 +38,12 @@ export const getBookById = async (req: Request, res: Response) => {
 export const addBook = async (req: Request, res: Response) => {
   const { title, subtitle, image, price } = req.body;
 
+=======
+export const addBook = async (req: Request, res: Response) => {
+  const { title, author, price } = req.body;
+
+  // Validar título do livro
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
   if (!validateBookTitle(title)) {
     return res
       .status(400)
@@ -36,12 +51,17 @@ export const addBook = async (req: Request, res: Response) => {
   }
 
   try {
+<<<<<<< HEAD
     const book = await bookRepository.addBook(title, subtitle, image, price);
+=======
+    const book = await bookRepository.addBook(title, author, price);
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
     res.status(201).json(book);
   } catch (err) {
     res.status(400).json({ error: "Erro ao adicionar livro" });
   }
 };
+<<<<<<< HEAD
 
 export const updateBook = async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -76,3 +96,5 @@ export const deleteBook = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Erro ao deletar livro" });
   }
 };
+=======
+>>>>>>> 98255963902351c7f32bb23488637188827a2905

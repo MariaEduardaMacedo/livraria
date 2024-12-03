@@ -5,9 +5,16 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
+<<<<<<< HEAD
     "skipLibCheck": true,
+=======
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
     "esModuleInterop": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 98255963902351c7f32bb23488637188827a2905

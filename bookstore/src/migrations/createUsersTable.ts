@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+// src/migrations/createUsersTable.ts
+
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
 import pool from "../config/database";
 
 const createUsersTable = async () => {

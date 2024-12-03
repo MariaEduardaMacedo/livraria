@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// src/repositories/userRepository.ts
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
 import { Pool } from "pg";
 import pool from "../config/database";
 import { User } from "../models/userModel";

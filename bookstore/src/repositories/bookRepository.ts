@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// src/repositories/bookRepository.ts
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
 import { Pool } from "pg";
 import pool from "../config/database";
 import { Book } from "../models/bookModel";
@@ -10,6 +14,7 @@ export class BookRepository {
     return rows;
   }
 
+<<<<<<< HEAD
   async getBookById(id: number): Promise<Book | null> {
     const { rows } = await this.pool.query(
       "SELECT * FROM books WHERE id = $1",
@@ -57,4 +62,12 @@ export class BookRepository {
   async deleteBook(id: number): Promise<void> {
     await this.pool.query("DELETE FROM books WHERE id = $1", [id]);
   }
+=======
+  async addBook(title: string, author: string, price: number): Promise<Book> {
+    const query =
+      "INSERT INTO books (title, author, price) VALUES ($1, $2, $3) RETURNING *";
+    const { rows } = await this.pool.query(query, [title, author, price]);
+    return rows[0];
+  }
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
 }

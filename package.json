@@ -7,17 +7,25 @@
     "test": "jest"
   },
   "dependencies": {
+<<<<<<< HEAD
     "cors": "^2.8.5",
+=======
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
     "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "pg": "^8.6.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.12",
     "@types/jest": "^27.0.2",
     "@types/node": "^22.10.1",
+=======
+    "@types/express": "^4.17.12",
+    "@types/jest": "^27.0.2",
+>>>>>>> 98255963902351c7f32bb23488637188827a2905
     "@types/pg": "^8.11.10",
     "jest": "^27.2.5",
     "supertest": "^6.1.6",
